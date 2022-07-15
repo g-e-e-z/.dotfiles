@@ -167,7 +167,7 @@ bar {
 # ------------------------------------------
 # START UP
 # ------------------------------------------
-exec --no-startup-id picom -CGb
+exec_always --no-startup-id picom &
 
 assign [class="firefox"]2
 
