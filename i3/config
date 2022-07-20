@@ -160,21 +160,27 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3status -c ~/.dotfiles/i3/i3status.conf
         tray_output primary
 }
-
 # ------------------------------------------
 # START UP
 # ------------------------------------------
 exec_always --no-startup-id picom &
 
-assign [class="firefox"]2
+assign [class="Alacritty"]1
+assign [class="brave-browser"]2
+assign [class="Brave-browser"]2
+assign [class="discord"]3
+assign [class="gimp"]4
 
 exec_always --no-startup-id ~/.config/i3/autostart.sh
-exec --no-startup-id i3-sensible-terminal
-exec --no-startup-id firefox
-
+exec --no-startup-id alacritty
+# exec_always --no-startup-id brave-browser
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/brave-browser'
+exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/discord'
+exec --no-startup-id i3-msg 'workspace 4; exec /usr/bin/gimp'
+#
 # ------------------------------------------
 # CUSTOM KEYS START
 # ------------------------------------------
